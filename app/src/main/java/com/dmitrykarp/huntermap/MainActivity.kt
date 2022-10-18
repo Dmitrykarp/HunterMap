@@ -12,9 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.ColorUtils
 import androidx.core.view.isVisible
-import com.dmitrykarp.huntermap.JavaUtils
 import com.dmitrykarp.huntermap.databinding.ActivityMainBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -61,11 +59,17 @@ class MainActivity : AppCompatActivity() {
         var marker = Marker(CURRENT_LOCATION,bitmapBalloonSN,1,1)
         var locationLayer = MyLocationOverlay(marker)
         val gf: GraphicFactory = AndroidGraphicFactory.INSTANCE
-        val paint: Paint = gf.createPaint()
-        paint.setStyle(Style.FILL)
-        paint.strokeWidth = 7F
-        paint.color = XmlUtils.getColor(gf, "#73ecec35")
-        val pl = Polyline(paint, gf)
+        val paintZone: Paint = gf.createPaint()
+        paintZone.setStyle(Style.FILL)
+        paintZone.strokeWidth = 7F
+        paintZone.color = XmlUtils.getColor(gf, "#73ecec35")
+        val pl = Polyline(paintZone, gf)
+
+        val paintZoneStroke: Paint = gf.createPaint()
+        paintZoneStroke.setStyle(Style.STROKE)
+        paintZoneStroke.strokeWidth = 7F
+        paintZoneStroke.color = XmlUtils.getColor(gf, "#FFed3438")
+        val plStroke = Polyline(paintZoneStroke, gf)
 
 
         val contract = registerForActivityResult(
@@ -133,12 +137,16 @@ class MainActivity : AppCompatActivity() {
                 val latLongs: MutableList<LatLong> = pl.latLongs
                 latLongs.addAll(JavaUtils.getPontList())
                 b.map.addLayer(pl)
+                val latLongsStroke: MutableList<LatLong> = plStroke.latLongs
+                latLongsStroke.addAll(JavaUtils.getPontList())
+                b.map.addLayer(plStroke)
                 zoneStatus = true
 
             }else{
                 //hide zone
                 if (b.map.layerManager.layers.indexOf(pl) > 0){
                     b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(pl))
+                    b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(plStroke))
                 }
                 zoneStatus = false
             }

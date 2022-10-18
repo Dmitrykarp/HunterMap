@@ -31,6 +31,7 @@ import org.mapsforge.map.layer.overlay.Polyline
 import org.mapsforge.map.layer.renderer.TileRendererLayer
 import org.mapsforge.map.reader.MapFile
 import org.mapsforge.map.rendertheme.InternalRenderTheme
+import org.mapsforge.map.rendertheme.XmlUtils
 import java.io.FileInputStream
 
 
@@ -62,8 +63,8 @@ class MainActivity : AppCompatActivity() {
         val gf: GraphicFactory = AndroidGraphicFactory.INSTANCE
         val paint: Paint = gf.createPaint()
         paint.setStyle(Style.FILL)
-        paint.setStrokeWidth(7F)
-        paint.setColor(ColorUtils.setAlphaComponent(Color.RED.ordinal,125)) //TODO: Need understand how work collor + transparency
+        paint.strokeWidth = 7F
+        paint.color = XmlUtils.getColor(gf, "#73ecec35")
         val pl = Polyline(paint, gf)
 
 

@@ -1,6 +1,7 @@
 package com.dmitrykarp.huntermap
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
@@ -20,8 +21,10 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import org.mapsforge.core.graphics.*
 import org.mapsforge.core.model.LatLong
+import org.mapsforge.core.model.Point
 import org.mapsforge.map.android.graphics.AndroidBitmap
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory
+import org.mapsforge.map.android.graphics.AndroidResourceBitmap
 import org.mapsforge.map.android.layers.MyLocationOverlay
 import org.mapsforge.map.android.util.AndroidUtil
 import org.mapsforge.map.layer.overlay.Marker
@@ -30,6 +33,7 @@ import org.mapsforge.map.layer.renderer.TileRendererLayer
 import org.mapsforge.map.reader.MapFile
 import org.mapsforge.map.rendertheme.InternalRenderTheme
 import org.mapsforge.map.rendertheme.XmlUtils
+import org.mapsforge.map.util.MapViewProjection
 import java.io.FileInputStream
 
 
@@ -44,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var zoneStatus = false
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidGraphicFactory.createInstance(application)
@@ -56,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                 resources, R.drawable.ic_maps_indicator_current_position
             )
         )
+
         var marker = Marker(CURRENT_LOCATION,bitmapBalloonSN,1,1)
         var locationLayer = MyLocationOverlay(marker)
         val gf: GraphicFactory = AndroidGraphicFactory.INSTANCE
@@ -71,7 +77,6 @@ class MainActivity : AppCompatActivity() {
         paintZoneStroke.color = XmlUtils.getColor(gf, "#FFed3438")
         val plStroke = Polyline(paintZoneStroke, gf)
 
-
         val contract = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ){result->
@@ -79,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 openMap(uri)
             }
         }
+
 
         b.openMap.setOnClickListener{
             contract.launch(
@@ -91,6 +97,7 @@ class MainActivity : AppCompatActivity() {
             )
             b.goToPosition.isVisible = true
             b.showZone.isVisible = true
+            b.openMap.isVisible = false
         }
 
         b.goToPosition.setOnClickListener{
@@ -137,6 +144,9 @@ class MainActivity : AppCompatActivity() {
                 val latLongs: MutableList<LatLong> = pl.latLongs
                 latLongs.addAll(JavaUtils.getPontList())
                 b.map.addLayer(pl)
+                println( "Point inside polygone: " +pl.contains(Point(CURRENT_LOCATION.latitude, CURRENT_LOCATION.longitude),
+                    MapViewProjection(b.map)
+                ))
                 val latLongsStroke: MutableList<LatLong> = plStroke.latLongs
                 latLongsStroke.addAll(JavaUtils.getPontList())
                 b.map.addLayer(plStroke)
@@ -166,7 +176,6 @@ class MainActivity : AppCompatActivity() {
             1f,
             b.map.model.frameBufferModel.overdrawFactor
         )
-
         val stream = contentResolver.openInputStream(uri) as FileInputStream
         val mapStore = MapFile(stream)
 

@@ -9,6 +9,7 @@ import android.location.Location
 import android.location.LocationRequest
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -19,22 +20,22 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import org.mapsforge.core.graphics.*
+import com.google.android.gms.tasks.OnSuccessListener
+import org.mapsforge.core.graphics.Bitmap
+import org.mapsforge.core.graphics.GraphicFactory
+import org.mapsforge.core.graphics.Paint
+import org.mapsforge.core.graphics.Style
 import org.mapsforge.core.model.LatLong
-import org.mapsforge.core.model.Point
 import org.mapsforge.map.android.graphics.AndroidBitmap
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory
-import org.mapsforge.map.android.graphics.AndroidResourceBitmap
 import org.mapsforge.map.android.layers.MyLocationOverlay
 import org.mapsforge.map.android.util.AndroidUtil
 import org.mapsforge.map.layer.overlay.Marker
 import org.mapsforge.map.layer.overlay.Polygon
-import org.mapsforge.map.layer.overlay.Polyline
 import org.mapsforge.map.layer.renderer.TileRendererLayer
 import org.mapsforge.map.reader.MapFile
 import org.mapsforge.map.rendertheme.InternalRenderTheme
 import org.mapsforge.map.rendertheme.XmlUtils
-import org.mapsforge.map.util.MapViewProjection
 import java.io.FileInputStream
 
 
@@ -47,7 +48,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var b: ActivityMainBinding
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var locationRequest: com.google.android.gms.location.LocationRequest
     private var zoneStatus = false
+    private lateinit var marker: Marker
+    private lateinit var locationLayer: MyLocationOverlay
+    private lateinit var gf: GraphicFactory
+    private lateinit var pl: Polygon
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,9 +69,9 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        var marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
-        var locationLayer = MyLocationOverlay(marker)
-        val gf: GraphicFactory = AndroidGraphicFactory.INSTANCE
+        marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
+        locationLayer = MyLocationOverlay(marker)
+        gf = AndroidGraphicFactory.INSTANCE
         val paintZone: Paint = gf.createPaint()
         paintZone.setStyle(Style.FILL)
         paintZone.strokeWidth = 7F
@@ -75,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         paintZoneStroke.strokeWidth = 7F
         paintZoneStroke.color = XmlUtils.getColor(gf, "#FFed3438")
 
-        val pl = Polygon(paintZone, paintZoneStroke, gf)
+        pl = Polygon(paintZone, paintZoneStroke, gf)
         val latLongs: MutableList<LatLong> = pl.latLongs
         latLongs.addAll(JavaUtils.getPontList())
 
@@ -97,65 +103,12 @@ class MainActivity : AppCompatActivity() {
                     addCategory(Intent.CATEGORY_OPENABLE)
                 }
             )
-            b.goToPosition.isVisible = true
+           // b.switchTrack.isVisible = true
             b.showZone.isVisible = true
             b.openMap.isVisible = false
         }
 
-        b.goToPosition.setOnClickListener {
-            val request = com.google.android.gms.location.LocationRequest()
-            request.interval = 10000
-            request.fastestInterval = 5000
-            request.priority = LocationRequest.QUALITY_HIGH_ACCURACY
-            val permission = ContextCompat.checkSelfPermission(
-                this, Manifest.permission.ACCESS_FINE_LOCATION
-            )
-            if (ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ),
-                    1
-                )
-            }
-
-            if (permission == PackageManager.PERMISSION_GRANTED) {
-                fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
-                    override fun onLocationResult(locationResult: LocationResult) {
-                        val location: Location? = locationResult.lastLocation
-                        if (location != null) {
-                            CURRENT_LOCATION = LatLong(location.latitude, location.longitude)
-                        }
-                    }
-                }, null)
-            }
-
-
-            marker.latLong = CURRENT_LOCATION
-            if (b.map.layerManager.layers.indexOf(locationLayer) > 0) {
-                b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(locationLayer))
-                b.map.addLayer(locationLayer)
-            } else {
-                b.map.addLayer(locationLayer)
-            }
-            b.map.setCenter(CURRENT_LOCATION)
-            b.map.setZoomLevel(13)
-            if (!pl.contains(CURRENT_LOCATION)) {
-                b.goToPosition.setBackgroundColor(XmlUtils.getColor(gf, "#FFFD0002"))
-            } else {
-                b.goToPosition.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
-            }
-        }
+        
 
         b.showZone.setOnClickListener {
             if (!zoneStatus) {
@@ -171,8 +124,22 @@ class MainActivity : AppCompatActivity() {
                 zoneStatus = false
             }
         }
-    }
+        b.switchTrack.isChecked = true
 
+        b.switchTrack.setOnClickListener(View.OnClickListener() {
+            fun onClick(var1: View?) {
+                if (b.switchTrack.isChecked) {
+                    startLocationUpdates()
+                } else {
+                    stopLocationUpdates()
+                }
+            }
+        })
+
+        updateGPS()
+
+        // End onCreate method
+    }
 
     fun openMap(uri: Uri) {
         b.map.mapScaleBar.isVisible = true
@@ -204,5 +171,116 @@ class MainActivity : AppCompatActivity() {
         b.map.setCenter(CURRENT_LOCATION)
         b.map.setZoomLevel(13)
 
+    }
+
+    fun updateGPS() {
+        println(" DMKA UpdateGPS")
+        locationRequest = com.google.android.gms.location.LocationRequest()
+        locationRequest.interval = 10000
+        locationRequest.fastestInterval = 5000
+        locationRequest.priority = LocationRequest.QUALITY_HIGH_ACCURACY
+        val permission = ContextCompat.checkSelfPermission(
+            this, Manifest.permission.ACCESS_FINE_LOCATION
+        )
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
+                1
+            )
+        }
+
+        if (permission == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.lastLocation.addOnSuccessListener(
+                this,
+                OnSuccessListener<Location>() {
+                    fun onSuccess(location: Location) {
+                        updateMarker(location)
+                    }
+
+                })
+
+
+            fusedLocationClient.requestLocationUpdates(
+                locationRequest,
+                object : LocationCallback() {
+                    override fun onLocationResult(locationResult: LocationResult) {
+                        val location: Location? = locationResult.lastLocation
+                        if (location != null) {
+                            updateMarker(location)
+                        }
+                    }
+                },
+                null
+            )
+        }
+
+    }
+
+    fun updateMarker(location: Location) {
+        println(" DMKA UpdateMarker")
+        println("b.map.layerManager.layers.indexOf(locationLayer) " +b.map.layerManager.layers.indexOf(locationLayer))
+        CURRENT_LOCATION = LatLong(location.latitude, location.longitude)
+        marker.latLong = CURRENT_LOCATION
+        if (b.map.layerManager.layers.indexOf(locationLayer) >= 0) {
+            b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(locationLayer))
+            b.map.addLayer(locationLayer)
+        } else {
+            b.map.addLayer(locationLayer)
+        }
+        b.map.setCenter(CURRENT_LOCATION)
+        b.map.setZoomLevel(13)
+    }
+
+    fun startLocationUpdates() {
+        println(" DMKA startLocationUpdates")
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
+        fusedLocationClient.requestLocationUpdates(
+            locationRequest,
+            object : LocationCallback() {
+                override fun onLocationResult(locationResult: LocationResult) {
+                    val location: Location? = locationResult.lastLocation
+                    if (location != null) {
+                        updateMarker(location)
+                    }
+                }
+            },
+            null
+        )
+        updateGPS()
+    }
+
+    fun stopLocationUpdates() {
+        println(" DMKA stopLocationUpdates")
+        fusedLocationClient.removeLocationUpdates(object : LocationCallback(){
+
+        })
     }
 }

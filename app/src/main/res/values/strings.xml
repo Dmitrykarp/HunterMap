@@ -3,4 +3,5 @@
     <string name="open_local_map">Open Map</string>
     <string name="go_to_position">Go to Me</string>
     <string name="show_zone">Zone</string>
+    <string name="switch_track">Track</string>
 </resources>

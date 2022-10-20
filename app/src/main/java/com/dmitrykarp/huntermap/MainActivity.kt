@@ -28,6 +28,7 @@ import org.mapsforge.map.android.graphics.AndroidResourceBitmap
 import org.mapsforge.map.android.layers.MyLocationOverlay
 import org.mapsforge.map.android.util.AndroidUtil
 import org.mapsforge.map.layer.overlay.Marker
+import org.mapsforge.map.layer.overlay.Polygon
 import org.mapsforge.map.layer.overlay.Polyline
 import org.mapsforge.map.layer.renderer.TileRendererLayer
 import org.mapsforge.map.reader.MapFile
@@ -39,7 +40,7 @@ import java.io.FileInputStream
 
 class MainActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         //For emulation
         var CURRENT_LOCATION = LatLong(51.3200, 46.0000)
     }
@@ -62,35 +63,36 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        var marker = Marker(CURRENT_LOCATION,bitmapBalloonSN,1,1)
+        var marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
         var locationLayer = MyLocationOverlay(marker)
         val gf: GraphicFactory = AndroidGraphicFactory.INSTANCE
         val paintZone: Paint = gf.createPaint()
         paintZone.setStyle(Style.FILL)
         paintZone.strokeWidth = 7F
         paintZone.color = XmlUtils.getColor(gf, "#73ecec35")
-        val pl = Polyline(paintZone, gf)
-
         val paintZoneStroke: Paint = gf.createPaint()
         paintZoneStroke.setStyle(Style.STROKE)
         paintZoneStroke.strokeWidth = 7F
         paintZoneStroke.color = XmlUtils.getColor(gf, "#FFed3438")
-        val plStroke = Polyline(paintZoneStroke, gf)
+
+        val pl = Polygon(paintZone, paintZoneStroke, gf)
+        val latLongs: MutableList<LatLong> = pl.latLongs
+        latLongs.addAll(JavaUtils.getPontList())
 
         val contract = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
-        ){result->
-            result?.data?.data?.let{uri->
+        ) { result ->
+            result?.data?.data?.let { uri ->
                 openMap(uri)
             }
         }
 
 
-        b.openMap.setOnClickListener{
+        b.openMap.setOnClickListener {
             contract.launch(
                 Intent(
                     Intent.ACTION_OPEN_DOCUMENT
-                ).apply{
+                ).apply {
                     type = "*/*"
                     addCategory(Intent.CATEGORY_OPENABLE)
                 }
@@ -100,18 +102,31 @@ class MainActivity : AppCompatActivity() {
             b.openMap.isVisible = false
         }
 
-        b.goToPosition.setOnClickListener{
-            println("Start go to")
+        b.goToPosition.setOnClickListener {
             val request = com.google.android.gms.location.LocationRequest()
             request.interval = 10000
             request.fastestInterval = 5000
             request.priority = LocationRequest.QUALITY_HIGH_ACCURACY
-            val permission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION
+            val permission = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_FINE_LOCATION
             )
-            if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
-            {
-                ActivityCompat.requestPermissions(this,arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,  Manifest.permission.ACCESS_COARSE_LOCATION),1)
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
+                    ),
+                    1
+                )
             }
 
             if (permission == PackageManager.PERMISSION_GRANTED) {
@@ -127,36 +142,31 @@ class MainActivity : AppCompatActivity() {
 
 
             marker.latLong = CURRENT_LOCATION
-            if (b.map.layerManager.layers.indexOf(locationLayer) > 0){
+            if (b.map.layerManager.layers.indexOf(locationLayer) > 0) {
                 b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(locationLayer))
                 b.map.addLayer(locationLayer)
-            }else{
+            } else {
                 b.map.addLayer(locationLayer)
             }
             b.map.setCenter(CURRENT_LOCATION)
             b.map.setZoomLevel(13)
-            println("Stop go to")
+            if (!pl.contains(CURRENT_LOCATION)) {
+                b.goToPosition.setBackgroundColor(XmlUtils.getColor(gf, "#FFFD0002"))
+            } else {
+                b.goToPosition.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
+            }
         }
 
         b.showZone.setOnClickListener {
-            if (!zoneStatus){
+            if (!zoneStatus) {
                 //show zone
-                val latLongs: MutableList<LatLong> = pl.latLongs
-                latLongs.addAll(JavaUtils.getPontList())
                 b.map.addLayer(pl)
-                println( "Point inside polygone: " +pl.contains(Point(CURRENT_LOCATION.latitude, CURRENT_LOCATION.longitude),
-                    MapViewProjection(b.map)
-                ))
-                val latLongsStroke: MutableList<LatLong> = plStroke.latLongs
-                latLongsStroke.addAll(JavaUtils.getPontList())
-                b.map.addLayer(plStroke)
                 zoneStatus = true
 
-            }else{
+            } else {
                 //hide zone
-                if (b.map.layerManager.layers.indexOf(pl) > 0){
+                if (b.map.layerManager.layers.indexOf(pl) > 0) {
                     b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(pl))
-                    b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(plStroke))
                 }
                 zoneStatus = false
             }
@@ -164,7 +174,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun openMap(uri: Uri){
+    fun openMap(uri: Uri) {
         b.map.mapScaleBar.isVisible = true
         b.map.setBuiltInZoomControls(true)
         b.map.setZoomLevelMax(16)

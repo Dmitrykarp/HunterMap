@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationRequest: com.google.android.gms.location.LocationRequest
     private var zoneStatus = false
+    private var buttonFlag = false
     private lateinit var marker: Marker
     private lateinit var locationLayer: MyLocationOverlay
     private lateinit var gf: GraphicFactory
@@ -68,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                 resources, R.drawable.ic_maps_indicator_current_position
             )
         )
+        b.switchTrack.isChecked = false
 
         marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
         locationLayer = MyLocationOverlay(marker)
@@ -93,6 +95,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        b.onOff.setOnClickListener{
+            if (buttonFlag){
+                buttonFlag = false
+                b.onOff.text = "OFF"
+                b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
+                b.switchTrack.isChecked = false
+            }else{
+                buttonFlag = true
+                b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FFDB1833"))
+                b.onOff.text = "ON"
+                b.switchTrack.isChecked = true
+            }
+        }
+
 
         b.openMap.setOnClickListener {
             contract.launch(
@@ -106,35 +122,23 @@ class MainActivity : AppCompatActivity() {
            // b.switchTrack.isVisible = true
             b.showZone.isVisible = true
             b.openMap.isVisible = false
+            b.onOff.isVisible = true
         }
 
         
 
         b.showZone.setOnClickListener {
             if (!zoneStatus) {
-                //show zone
                 b.map.addLayer(pl)
                 zoneStatus = true
 
             } else {
-                //hide zone
                 if (b.map.layerManager.layers.indexOf(pl) > 0) {
                     b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(pl))
                 }
                 zoneStatus = false
             }
         }
-        b.switchTrack.isChecked = true
-
-        b.switchTrack.setOnClickListener(View.OnClickListener() {
-            fun onClick(var1: View?) {
-                if (b.switchTrack.isChecked) {
-                    startLocationUpdates()
-                } else {
-                    stopLocationUpdates()
-                }
-            }
-        })
 
         updateGPS()
 
@@ -197,7 +201,7 @@ class MainActivity : AppCompatActivity() {
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ),
-                1
+                99
             )
         }
 
@@ -206,7 +210,9 @@ class MainActivity : AppCompatActivity() {
                 this,
                 OnSuccessListener<Location>() {
                     fun onSuccess(location: Location) {
-                        updateMarker(location)
+                        if (b.switchTrack.isChecked) {
+                            updateMarker(location)
+                        }
                     }
 
                 })
@@ -217,7 +223,7 @@ class MainActivity : AppCompatActivity() {
                 object : LocationCallback() {
                     override fun onLocationResult(locationResult: LocationResult) {
                         val location: Location? = locationResult.lastLocation
-                        if (location != null) {
+                        if (location != null && b.switchTrack.isChecked) {
                             updateMarker(location)
                         }
                     }
@@ -230,7 +236,6 @@ class MainActivity : AppCompatActivity() {
 
     fun updateMarker(location: Location) {
         println(" DMKA UpdateMarker")
-        println("b.map.layerManager.layers.indexOf(locationLayer) " +b.map.layerManager.layers.indexOf(locationLayer))
         CURRENT_LOCATION = LatLong(location.latitude, location.longitude)
         marker.latLong = CURRENT_LOCATION
         if (b.map.layerManager.layers.indexOf(locationLayer) >= 0) {
@@ -241,46 +246,5 @@ class MainActivity : AppCompatActivity() {
         }
         b.map.setCenter(CURRENT_LOCATION)
         b.map.setZoomLevel(13)
-    }
-
-    fun startLocationUpdates() {
-        println(" DMKA startLocationUpdates")
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
-        }
-        fusedLocationClient.requestLocationUpdates(
-            locationRequest,
-            object : LocationCallback() {
-                override fun onLocationResult(locationResult: LocationResult) {
-                    val location: Location? = locationResult.lastLocation
-                    if (location != null) {
-                        updateMarker(location)
-                    }
-                }
-            },
-            null
-        )
-        updateGPS()
-    }
-
-    fun stopLocationUpdates() {
-        println(" DMKA stopLocationUpdates")
-        fusedLocationClient.removeLocationUpdates(object : LocationCallback(){
-
-        })
     }
 }

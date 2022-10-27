@@ -9,7 +9,6 @@ import android.location.Location
 import android.location.LocationRequest
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -23,8 +22,6 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 import org.mapsforge.core.graphics.Bitmap
 import org.mapsforge.core.graphics.GraphicFactory
-import org.mapsforge.core.graphics.Paint
-import org.mapsforge.core.graphics.Style
 import org.mapsforge.core.model.LatLong
 import org.mapsforge.map.android.graphics.AndroidBitmap
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory
@@ -54,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var marker: Marker
     private lateinit var locationLayer: MyLocationOverlay
     private lateinit var gf: GraphicFactory
-    private lateinit var pl: Polygon
+    private lateinit var polygonList: Collection<Polygon>
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,22 +67,12 @@ class MainActivity : AppCompatActivity() {
             )
         )
         b.switchTrack.isChecked = false
+        polygonList = JavaUtils.getPolygonList();
 
         marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
         locationLayer = MyLocationOverlay(marker)
         gf = AndroidGraphicFactory.INSTANCE
-        val paintZone: Paint = gf.createPaint()
-        paintZone.setStyle(Style.FILL)
-        paintZone.strokeWidth = 7F
-        paintZone.color = XmlUtils.getColor(gf, "#73ecec35")
-        val paintZoneStroke: Paint = gf.createPaint()
-        paintZoneStroke.setStyle(Style.STROKE)
-        paintZoneStroke.strokeWidth = 7F
-        paintZoneStroke.color = XmlUtils.getColor(gf, "#FFed3438")
 
-        pl = Polygon(paintZone, paintZoneStroke, gf)
-        val latLongs: MutableList<LatLong> = pl.latLongs
-        latLongs.addAll(JavaUtils.getPontList())
 
         val contract = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -95,13 +82,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        b.onOff.setOnClickListener{
-            if (buttonFlag){
+        b.onOff.setOnClickListener {
+            if (buttonFlag) {
                 buttonFlag = false
                 b.onOff.text = "OFF"
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
                 b.switchTrack.isChecked = false
-            }else{
+            } else {
                 buttonFlag = true
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FFDB1833"))
                 b.onOff.text = "ON"
@@ -119,22 +106,25 @@ class MainActivity : AppCompatActivity() {
                     addCategory(Intent.CATEGORY_OPENABLE)
                 }
             )
-           // b.switchTrack.isVisible = true
             b.showZone.isVisible = true
             b.openMap.isVisible = false
             b.onOff.isVisible = true
         }
 
-        
+
 
         b.showZone.setOnClickListener {
             if (!zoneStatus) {
-                b.map.addLayer(pl)
+                for (pl in polygonList) {
+                    b.map.addLayer(pl)
+                }
                 zoneStatus = true
 
             } else {
-                if (b.map.layerManager.layers.indexOf(pl) > 0) {
-                    b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(pl))
+                for (pl in polygonList) {
+                    if (b.map.layerManager.layers.indexOf(pl) > 0) {
+                        b.map.layerManager.layers.remove(b.map.layerManager.layers.indexOf(pl))
+                    }
                 }
                 zoneStatus = false
             }
@@ -206,7 +196,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (permission == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationClient.lastLocation.addOnSuccessListener(
+
+            /*fusedLocationClient.lastLocation.addOnSuccessListener(
                 this,
                 OnSuccessListener<Location>() {
                     fun onSuccess(location: Location) {
@@ -214,9 +205,7 @@ class MainActivity : AppCompatActivity() {
                             updateMarker(location)
                         }
                     }
-
-                })
-
+                })*/
 
             fusedLocationClient.requestLocationUpdates(
                 locationRequest,
@@ -231,7 +220,6 @@ class MainActivity : AppCompatActivity() {
                 null
             )
         }
-
     }
 
     fun updateMarker(location: Location) {
@@ -245,6 +233,5 @@ class MainActivity : AppCompatActivity() {
             b.map.addLayer(locationLayer)
         }
         b.map.setCenter(CURRENT_LOCATION)
-        b.map.setZoomLevel(13)
     }
 }

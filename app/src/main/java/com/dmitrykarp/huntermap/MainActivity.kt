@@ -19,7 +19,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.OnSuccessListener
 import org.mapsforge.core.graphics.Bitmap
 import org.mapsforge.core.graphics.GraphicFactory
 import org.mapsforge.core.model.LatLong
@@ -67,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
         b.switchTrack.isChecked = false
-        polygonList = JavaUtils.getPolygonList();
+        polygonList = JavaUtils.initPolygons(resources);
 
         marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
         locationLayer = MyLocationOverlay(marker)

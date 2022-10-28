@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Polygones xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <polygon>
+        <point>
+            <latitude>50.784355</latitude>
+            <longitude>46.664385</longitude>
+        </point>
+        <point>
+            <latitude>50.784464</latitude>
+            <longitude>46.608595</longitude>
+        </point>
+        <point>
+            <latitude>50.762671</latitude>
+            <longitude>46.608939</longitude>
+        </point>
+        <point>
+            <latitude>50.762752</latitude>
+            <longitude>46.663613</longitude>
+        </point>
+    </polygon>
 </Polygones>

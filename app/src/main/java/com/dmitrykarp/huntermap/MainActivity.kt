@@ -65,7 +65,6 @@ class MainActivity : AppCompatActivity() {
                 resources, R.drawable.ic_maps_indicator_current_position
             )
         )
-        b.switchTrack.isChecked = false
         polygonList = JavaUtils.initPolygons(resources);
 
         marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
@@ -86,12 +85,10 @@ class MainActivity : AppCompatActivity() {
                 buttonFlag = false
                 b.onOff.text = "OFF"
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
-                b.switchTrack.isChecked = false
             } else {
                 buttonFlag = true
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FFDB1833"))
                 b.onOff.text = "ON"
-                b.switchTrack.isChecked = true
             }
         }
 
@@ -196,22 +193,12 @@ class MainActivity : AppCompatActivity() {
 
         if (permission == PackageManager.PERMISSION_GRANTED) {
 
-            /*fusedLocationClient.lastLocation.addOnSuccessListener(
-                this,
-                OnSuccessListener<Location>() {
-                    fun onSuccess(location: Location) {
-                        if (b.switchTrack.isChecked) {
-                            updateMarker(location)
-                        }
-                    }
-                })*/
-
             fusedLocationClient.requestLocationUpdates(
                 locationRequest,
                 object : LocationCallback() {
                     override fun onLocationResult(locationResult: LocationResult) {
                         val location: Location? = locationResult.lastLocation
-                        if (location != null && b.switchTrack.isChecked) {
+                        if (location != null && buttonFlag) {
                             updateMarker(location)
                         }
                     }

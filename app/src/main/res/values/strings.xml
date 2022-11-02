@@ -4,5 +4,6 @@
     <string name="go_to_position">Go to Me</string>
     <string name="show_zone">Zone</string>
     <string name="switch_track">Track</string>
-    <string name="on_off">OFF</string>
+    <string name="button_off">OFF</string>
+    <string name="button_on">OFF</string>
 </resources>

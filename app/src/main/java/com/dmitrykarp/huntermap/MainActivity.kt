@@ -83,12 +83,12 @@ class MainActivity : AppCompatActivity() {
         b.onOff.setOnClickListener {
             if (buttonFlag) {
                 buttonFlag = false
-                b.onOff.text = "OFF"
+                b.onOff.text = R.strings.button_off
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
             } else {
                 buttonFlag = true
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FFDB1833"))
-                b.onOff.text = "ON"
+                b.onOff.text = R.strings.button_on
             }
         }
 

@@ -10,7 +10,7 @@
         android:id="@+id/on_off"
         android:layout_width="96dp"
         android:layout_height="40dp"
-        android:text="@string/on_off"
+        android:text="@string/button_on"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

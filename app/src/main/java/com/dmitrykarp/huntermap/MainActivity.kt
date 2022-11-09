@@ -137,9 +137,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openMap(uri: Uri) {
-        b.map.mapScaleBar.isVisible = false
-        b.map.setBuiltInZoomControls(true)
-        b.map.setZoomLevelMax(16)
+        b.map.mapScaleBar.isVisible = true
+        b.map.setBuiltInZoomControls(false)
+        b.map.setZoomLevelMax(17)
         b.map.setZoomLevelMin(10)
         val cache = AndroidUtil.createTileCache(
             this,

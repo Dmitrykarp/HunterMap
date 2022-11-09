@@ -19984,7 +19984,7 @@
         <point><latitude>51.203791</latitude><longitude>49.459762</longitude></point>
         <point><latitude>51.205135</latitude><longitude>49.442253</longitude></point>
     </polygon>
-    <polygon>
+    <polygon> <!-- Big Balakovo -->
         <point><latitude>51.740373</latitude><longitude>47.450444</longitude></point>
         <point><latitude>51.482390</latitude><longitude>47.507227</longitude></point>
         <point><latitude>51.480621</latitude><longitude>47.556295</longitude></point>
@@ -21255,7 +21255,7 @@
         <point><latitude>51.740702</latitude><longitude>47.450809</longitude></point>
         <point><latitude>51.740403</latitude><longitude>47.450423</longitude></point>
     </polygon>
-    <polygon>
+    <polygon>  <!-- Marks  -->
         <point><latitude>51.728629</latitude><longitude>46.635353</longitude></point>
         <point><latitude>51.722555</latitude><longitude>46.635289</longitude></point>
         <point><latitude>51.720973</latitude><longitude>46.636211</longitude></point>
@@ -21416,8 +21416,9 @@
         <point><latitude>51.731008</latitude><longitude>46.693396</longitude></point>
         <point><latitude>51.732138</latitude><longitude>46.671724</longitude></point>
         <point><latitude>51.728722</latitude><longitude>46.645181</longitude></point>
+        <point><latitude>51.728629</latitude><longitude>46.635353</longitude></point>
     </polygon>
-    <polygon>
+    <polygon> <!-- Marks 2 -->
         <point><latitude>51.834517</latitude><longitude>47.406606</longitude></point>
         <point><latitude>51.824970</latitude><longitude>47.415790</longitude></point>
         <point><latitude>51.809503</latitude><longitude>47.430725</longitude></point>
@@ -21443,8 +21444,9 @@
         <point><latitude>51.849286</latitude><longitude>47.452526</longitude></point>
         <point><latitude>51.843745</latitude><longitude>47.436518</longitude></point>
         <point><latitude>51.836321</latitude><longitude>47.412486</longitude></point>
+        <point><latitude>51.834517</latitude><longitude>47.406606</longitude></point>
     </polygon>
-    <polygon>
+    <polygon> <!-- Tatishevo  -->
         <point><latitude>51.642804</latitude><longitude>45.524854</longitude></point>
         <point><latitude>51.657023</latitude><longitude>45.514383</longitude></point>
         <point><latitude>51.673313</latitude><longitude>45.502452</longitude></point>
@@ -21518,6 +21520,7 @@
         <point><latitude>51.649834</latitude><longitude>45.558757</longitude></point>
         <point><latitude>51.648369</latitude><longitude>45.553779</longitude></point>
         <point><latitude>51.645254</latitude><longitude>45.537815</longitude></point>
+        <point><latitude>51.642804</latitude><longitude>45.524854</longitude></point>
     </polygon>
     <polygon>
         <point><latitude>51.913984</latitude><longitude>46.621813</longitude></point>
@@ -21662,7 +21665,7 @@
         <point><latitude>51.914196</latitude><longitude>46.623637</longitude></point>
         <point><latitude>51.914024</latitude><longitude>46.622586</longitude></point>
     </polygon>
-    <polygon>
+    <polygon> <!-- Perelub  -->
         <point><latitude>51.865315</latitude><longitude>50.278501</longitude></point>
         <point><latitude>51.864785</latitude><longitude>50.282127</longitude></point>
         <point><latitude>51.864520</latitude><longitude>50.285368</longitude></point>
@@ -21950,6 +21953,7 @@
         <point><latitude>51.852036</latitude><longitude>50.275669</longitude></point>
         <point><latitude>51.858279</latitude><longitude>50.276956</longitude></point>
         <point><latitude>51.864070</latitude><longitude>50.278201</longitude></point>
+        <point><latitude>51.865315</latitude><longitude>50.278501</longitude></point>
     </polygon>
     <polygon>
         <point><latitude>52.173349</latitude><longitude>47.907353</longitude></point>
@@ -23345,6 +23349,7 @@
         <point><latitude>52.206489</latitude><longitude>48.417606</longitude></point>
         <point><latitude>52.192600</latitude><longitude>48.419580</longitude></point>
         <point><latitude>52.191416</latitude><longitude>48.419537</longitude></point>
+        <point><latitude>52.191074</latitude><longitude>48.416147</longitude></point>
         <point><latitude>52.196099</latitude><longitude>48.409323</longitude></point>
         <point><latitude>52.196783</latitude><longitude>48.396062</longitude></point>
         <point><latitude>52.196415</latitude><longitude>48.380012</longitude></point>
@@ -23407,5 +23412,452 @@
         <point><latitude>52.156176</latitude><longitude>47.955150</longitude></point>
         <point><latitude>52.168654</latitude><longitude>47.924208</longitude></point>
         <point><latitude>52.173392</latitude><longitude>47.907300</longitude></point>
+    </polygon>
+    <polygon>   <!-- Volsk  -->
+        <point><latitude>51.992643</latitude><longitude>47.283353</longitude></point>
+        <point><latitude>52.001191</latitude><longitude>47.277388</longitude></point>
+        <point><latitude>52.006237</latitude><longitude>47.275908</longitude></point>
+        <point><latitude>52.006752</latitude><longitude>47.275629</longitude></point>
+        <point><latitude>52.007201</latitude><longitude>47.275006</longitude></point>
+        <point><latitude>52.008931</latitude><longitude>47.271938</longitude></point>
+        <point><latitude>52.009526</latitude><longitude>47.271401</longitude></point>
+        <point><latitude>52.011045</latitude><longitude>47.270500</longitude></point>
+        <point><latitude>52.011824</latitude><longitude>47.269492</longitude></point>
+        <point><latitude>52.012220</latitude><longitude>47.268655</longitude></point>
+        <point><latitude>52.014267</latitude><longitude>47.263312</longitude></point>
+        <point><latitude>52.014822</latitude><longitude>47.262582</longitude></point>
+        <point><latitude>52.016037</latitude><longitude>47.262046</longitude></point>
+        <point><latitude>52.017146</latitude><longitude>47.261810</longitude></point>
+        <point><latitude>52.018929</latitude><longitude>47.261638</longitude></point>
+        <point><latitude>52.019576</latitude><longitude>47.260909</longitude></point>
+        <point><latitude>52.020328</latitude><longitude>47.259600</longitude></point>
+        <point><latitude>52.021688</latitude><longitude>47.257862</longitude></point>
+        <point><latitude>52.024673</latitude><longitude>47.253420</longitude></point>
+        <point><latitude>52.025082</latitude><longitude>47.252969</longitude></point>
+        <point><latitude>52.025782</latitude><longitude>47.252905</longitude></point>
+        <point><latitude>52.026257</latitude><longitude>47.253527</longitude></point>
+        <point><latitude>52.026481</latitude><longitude>47.254965</longitude></point>
+        <point><latitude>52.027458</latitude><longitude>47.256274</longitude></point>
+        <point><latitude>52.028237</latitude><longitude>47.257132</longitude></point>
+        <point><latitude>52.029069</latitude><longitude>47.257432</longitude></point>
+        <point><latitude>52.030270</latitude><longitude>47.257111</longitude></point>
+        <point><latitude>52.031208</latitude><longitude>47.257926</longitude></point>
+        <point><latitude>52.031696</latitude><longitude>47.258849</longitude></point>
+        <point><latitude>52.033294</latitude><longitude>47.259836</longitude></point>
+        <point><latitude>52.035617</latitude><longitude>47.260351</longitude></point>
+        <point><latitude>52.039669</latitude><longitude>47.261123</longitude></point>
+        <point><latitude>52.041741</latitude><longitude>47.261574</longitude></point>
+        <point><latitude>52.047601</latitude><longitude>47.262733</longitude></point>
+        <point><latitude>52.059239</latitude><longitude>47.265007</longitude></point>
+        <point><latitude>52.070920</latitude><longitude>47.266917</longitude></point>
+        <point><latitude>52.079545</latitude><longitude>47.268075</longitude></point>
+        <point><latitude>52.083607</latitude><longitude>47.269148</longitude></point>
+        <point><latitude>52.097819</latitude><longitude>47.271981</longitude></point>
+        <point><latitude>52.098320</latitude><longitude>47.272796</longitude></point>
+        <point><latitude>52.099691</latitude><longitude>47.273612</longitude></point>
+        <point><latitude>52.100060</latitude><longitude>47.274169</longitude></point>
+        <point><latitude>52.103197</latitude><longitude>47.273998</longitude></point>
+        <point><latitude>52.103961</latitude><longitude>47.274513</longitude></point>
+        <point><latitude>52.105701</latitude><longitude>47.274513</longitude></point>
+        <point><latitude>52.108099</latitude><longitude>47.272925</longitude></point>
+        <point><latitude>52.108996</latitude><longitude>47.273869</longitude></point>
+        <point><latitude>52.109602</latitude><longitude>47.274169</longitude></point>
+        <point><latitude>52.110208</latitude><longitude>47.273440</longitude></point>
+        <point><latitude>52.111737</latitude><longitude>47.274127</longitude></point>
+        <point><latitude>52.114214</latitude><longitude>47.273612</longitude></point>
+        <point><latitude>52.118562</latitude><longitude>47.273483</longitude></point>
+        <point><latitude>52.120907</latitude><longitude>47.261939</longitude></point>
+        <point><latitude>52.123410</latitude><longitude>47.252326</longitude></point>
+        <point><latitude>52.127046</latitude><longitude>47.240266</longitude></point>
+        <point><latitude>52.130814</latitude><longitude>47.229538</longitude></point>
+        <point><latitude>52.144063</latitude><longitude>47.201085</longitude></point>
+        <point><latitude>52.158071</latitude><longitude>47.174091</longitude></point>
+        <point><latitude>52.161152</latitude><longitude>47.168211</longitude></point>
+        <point><latitude>52.161362</latitude><longitude>47.166409</longitude></point>
+        <point><latitude>52.161494</latitude><longitude>47.163662</longitude></point>
+        <point><latitude>52.161283</latitude><longitude>47.142376</longitude></point>
+        <point><latitude>52.161020</latitude><longitude>47.114052</longitude></point>
+        <point><latitude>52.161362</latitude><longitude>47.107315</longitude></point>
+        <point><latitude>52.160757</latitude><longitude>47.094140</longitude></point>
+        <point><latitude>52.159809</latitude><longitude>47.082595</longitude></point>
+        <point><latitude>52.157993</latitude><longitude>47.073369</longitude></point>
+        <point><latitude>52.158177</latitude><longitude>47.066073</longitude></point>
+        <point><latitude>52.158730</latitude><longitude>47.061309</longitude></point>
+        <point><latitude>52.157440</latitude><longitude>47.059764</longitude></point>
+        <point><latitude>52.157703</latitude><longitude>47.055859</longitude></point>
+        <point><latitude>52.158730</latitude><longitude>47.049207</longitude></point>
+        <point><latitude>52.160125</latitude><longitude>47.044744</longitude></point>
+        <point><latitude>52.162178</latitude><longitude>47.041482</longitude></point>
+        <point><latitude>52.163310</latitude><longitude>47.037749</longitude></point>
+        <point><latitude>52.162837</latitude><longitude>47.031354</longitude></point>
+        <point><latitude>52.167048</latitude><longitude>47.028951</longitude></point>
+        <point><latitude>52.173260</latitude><longitude>47.024874</longitude></point>
+        <point><latitude>52.175392</latitude><longitude>47.020840</longitude></point>
+        <point><latitude>52.178313</latitude><longitude>47.013201</longitude></point>
+        <point><latitude>52.181181</latitude><longitude>47.011227</longitude></point>
+        <point><latitude>52.184444</latitude><longitude>47.012343</longitude></point>
+        <point><latitude>52.186839</latitude><longitude>47.016763</longitude></point>
+        <point><latitude>52.200229</latitude><longitude>47.043628</longitude></point>
+        <point><latitude>52.215508</latitude><longitude>47.074656</longitude></point>
+        <point><latitude>52.234909</latitude><longitude>47.114138</longitude></point>
+        <point><latitude>52.240060</latitude><longitude>47.117056</longitude></point>
+        <point><latitude>52.240927</latitude><longitude>47.116842</longitude></point>
+        <point><latitude>52.247707</latitude><longitude>47.116026</longitude></point>
+        <point><latitude>52.260291</latitude><longitude>47.114439</longitude></point>
+        <point><latitude>52.265334</latitude><longitude>47.114782</longitude></point>
+        <point><latitude>52.267986</latitude><longitude>47.115211</longitude></point>
+        <point><latitude>52.268984</latitude><longitude>47.114868</longitude></point>
+        <point><latitude>52.269798</latitude><longitude>47.118086</longitude></point>
+        <point><latitude>52.271111</latitude><longitude>47.118644</longitude></point>
+        <point><latitude>52.273659</latitude><longitude>47.131218</longitude></point>
+        <point><latitude>52.275969</latitude><longitude>47.128772</longitude></point>
+        <point><latitude>52.276495</latitude><longitude>47.127614</longitude></point>
+        <point><latitude>52.276573</latitude><longitude>47.126455</longitude></point>
+        <point><latitude>52.279803</latitude><longitude>47.120747</longitude></point>
+        <point><latitude>52.288073</latitude><longitude>47.114396</longitude></point>
+        <point><latitude>52.290987</latitude><longitude>47.111392</longitude></point>
+        <point><latitude>52.293611</latitude><longitude>47.109718</longitude></point>
+        <point><latitude>52.295895</latitude><longitude>47.107272</longitude></point>
+        <point><latitude>52.302771</latitude><longitude>47.097401</longitude></point>
+        <point><latitude>52.309305</latitude><longitude>47.084484</longitude></point>
+        <point><latitude>52.310407</latitude><longitude>47.083454</longitude></point>
+        <point><latitude>52.316126</latitude><longitude>47.076373</longitude></point>
+        <point><latitude>52.317097</latitude><longitude>47.073583</longitude></point>
+        <point><latitude>52.324415</latitude><longitude>47.064571</longitude></point>
+        <point><latitude>52.324861</latitude><longitude>47.063069</longitude></point>
+        <point><latitude>52.341225</latitude><longitude>47.042770</longitude></point>
+        <point><latitude>52.338734</latitude><longitude>47.028951</longitude></point>
+        <point><latitude>52.339128</latitude><longitude>47.025647</longitude></point>
+        <point><latitude>52.338918</latitude><longitude>47.023544</longitude></point>
+        <point><latitude>52.336506</latitude><longitude>47.015090</longitude></point>
+        <point><latitude>52.334303</latitude><longitude>47.009983</longitude></point>
+        <point><latitude>52.333752</latitude><longitude>47.007923</longitude></point>
+        <point><latitude>52.328507</latitude><longitude>46.996336</longitude></point>
+        <point><latitude>52.328455</latitude><longitude>46.995563</longitude></point>
+        <point><latitude>52.330317</latitude><longitude>46.994404</longitude></point>
+        <point><latitude>52.330631</latitude><longitude>46.994319</longitude></point>
+        <point><latitude>52.333752</latitude><longitude>46.992130</longitude></point>
+        <point><latitude>52.333595</latitude><longitude>46.990714</longitude></point>
+        <point><latitude>52.335404</latitude><longitude>46.989555</longitude></point>
+        <point><latitude>52.336453</latitude><longitude>46.989684</longitude></point>
+        <point><latitude>52.337214</latitude><longitude>46.990199</longitude></point>
+        <point><latitude>52.338053</latitude><longitude>46.990499</longitude></point>
+        <point><latitude>52.338603</latitude><longitude>47.000241</longitude></point>
+        <point><latitude>52.338629</latitude><longitude>47.001357</longitude></point>
+        <point><latitude>52.339809</latitude><longitude>47.001957</longitude></point>
+        <point><latitude>52.340780</latitude><longitude>47.001957</longitude></point>
+        <point><latitude>52.347203</latitude><longitude>47.011399</longitude></point>
+        <point><latitude>52.352053</latitude><longitude>47.017622</longitude></point>
+        <point><latitude>52.351817</latitude><longitude>47.019467</longitude></point>
+        <point><latitude>52.352079</latitude><longitude>47.021012</longitude></point>
+        <point><latitude>52.351790</latitude><longitude>47.022213</longitude></point>
+        <point><latitude>52.351083</latitude><longitude>47.027406</longitude></point>
+        <point><latitude>52.351030</latitude><longitude>47.030754</longitude></point>
+        <point><latitude>52.351109</latitude><longitude>47.032556</longitude></point>
+        <point><latitude>52.350585</latitude><longitude>47.033629</longitude></point>
+        <point><latitude>52.350716</latitude><longitude>47.034144</longitude></point>
+        <point><latitude>52.351188</latitude><longitude>47.034916</longitude></point>
+        <point><latitude>52.351345</latitude><longitude>47.038135</longitude></point>
+        <point><latitude>52.351319</latitude><longitude>47.040882</longitude></point>
+        <point><latitude>52.352079</latitude><longitude>47.046246</longitude></point>
+        <point><latitude>52.352708</latitude><longitude>47.051310</longitude></point>
+        <point><latitude>52.353625</latitude><longitude>47.057576</longitude></point>
+        <point><latitude>52.355329</latitude><longitude>47.064743</longitude></point>
+        <point><latitude>52.356299</latitude><longitude>47.066245</longitude></point>
+        <point><latitude>52.359496</latitude><longitude>47.072682</longitude></point>
+        <point><latitude>52.361960</latitude><longitude>47.076973</longitude></point>
+        <point><latitude>52.362458</latitude><longitude>47.078518</longitude></point>
+        <point><latitude>52.362825</latitude><longitude>47.079248</longitude></point>
+        <point><latitude>52.362694</latitude><longitude>47.081608</longitude></point>
+        <point><latitude>52.363506</latitude><longitude>47.083582</longitude></point>
+        <point><latitude>52.363690</latitude><longitude>47.084569</longitude></point>
+        <point><latitude>52.363375</latitude><longitude>47.085170</longitude></point>
+        <point><latitude>52.363297</latitude><longitude>47.087702</longitude></point>
+        <point><latitude>52.363297</latitude><longitude>47.088904</longitude></point>
+        <point><latitude>52.363978</latitude><longitude>47.089505</longitude></point>
+        <point><latitude>52.364214</latitude><longitude>47.091736</longitude></point>
+        <point><latitude>52.365786</latitude><longitude>47.095985</longitude></point>
+        <point><latitude>52.365681</latitude><longitude>47.098002</longitude></point>
+        <point><latitude>52.365970</latitude><longitude>47.100877</longitude></point>
+        <point><latitude>52.366363</latitude><longitude>47.102336</longitude></point>
+        <point><latitude>52.366598</latitude><longitude>47.108774</longitude></point>
+        <point><latitude>52.366074</latitude><longitude>47.109847</longitude></point>
+        <point><latitude>52.366179</latitude><longitude>47.112894</longitude></point>
+        <point><latitude>52.366546</latitude><longitude>47.113838</longitude></point>
+        <point><latitude>52.366756</latitude><longitude>47.117786</longitude></point>
+        <point><latitude>52.366625</latitude><longitude>47.119374</longitude></point>
+        <point><latitude>52.367463</latitude><longitude>47.123665</longitude></point>
+        <point><latitude>52.367935</latitude><longitude>47.124180</longitude></point>
+        <point><latitude>52.368485</latitude><longitude>47.126369</longitude></point>
+        <point><latitude>52.367568</latitude><longitude>47.133193</longitude></point>
+        <point><latitude>52.367909</latitude><longitude>47.134609</longitude></point>
+        <point><latitude>52.367856</latitude><longitude>47.138214</longitude></point>
+        <point><latitude>52.369009</latitude><longitude>47.142334</longitude></point>
+        <point><latitude>52.370031</latitude><longitude>47.144737</longitude></point>
+        <point><latitude>52.370608</latitude><longitude>47.150616</longitude></point>
+        <point><latitude>52.369874</latitude><longitude>47.157697</longitude></point>
+        <point><latitude>52.370162</latitude><longitude>47.158298</longitude></point>
+        <point><latitude>52.369952</latitude><longitude>47.159414</longitude></point>
+        <point><latitude>52.370241</latitude><longitude>47.162976</longitude></point>
+        <point><latitude>52.371105</latitude><longitude>47.173533</longitude></point>
+        <point><latitude>52.371236</latitude><longitude>47.177867</longitude></point>
+        <point><latitude>52.369428</latitude><longitude>47.184777</longitude></point>
+        <point><latitude>52.369219</latitude><longitude>47.185378</longitude></point>
+        <point><latitude>52.369297</latitude><longitude>47.187781</longitude></point>
+        <point><latitude>52.370346</latitude><longitude>47.193017</longitude></point>
+        <point><latitude>52.369979</latitude><longitude>47.196021</longitude></point>
+        <point><latitude>52.369926</latitude><longitude>47.196750</longitude></point>
+        <point><latitude>52.371289</latitude><longitude>47.199540</longitude></point>
+        <point><latitude>52.371105</latitude><longitude>47.201514</longitude></point>
+        <point><latitude>52.371132</latitude><longitude>47.203273</longitude></point>
+        <point><latitude>52.370870</latitude><longitude>47.208294</longitude></point>
+        <point><latitude>52.371498</latitude><longitude>47.210183</longitude></point>
+        <point><latitude>52.373385</latitude><longitude>47.212929</longitude></point>
+        <point><latitude>52.374040</latitude><longitude>47.214474</longitude></point>
+        <point><latitude>52.374669</latitude><longitude>47.217693</longitude></point>
+        <point><latitude>52.374616</latitude><longitude>47.220783</longitude></point>
+        <point><latitude>52.374276</latitude><longitude>47.223014</longitude></point>
+        <point><latitude>52.373123</latitude><longitude>47.224559</longitude></point>
+        <point><latitude>52.372599</latitude><longitude>47.226061</longitude></point>
+        <point><latitude>52.372573</latitude><longitude>47.226705</longitude></point>
+        <point><latitude>52.371446</latitude><longitude>47.228765</longitude></point>
+        <point><latitude>52.370974</latitude><longitude>47.229752</longitude></point>
+        <point><latitude>52.370896</latitude><longitude>47.232413</longitude></point>
+        <point><latitude>52.370188</latitude><longitude>47.232670</longitude></point>
+        <point><latitude>52.369586</latitude><longitude>47.234602</longitude></point>
+        <point><latitude>52.368773</latitude><longitude>47.235288</longitude></point>
+        <point><latitude>52.369507</latitude><longitude>47.236404</longitude></point>
+        <point><latitude>52.368983</latitude><longitude>47.237863</longitude></point>
+        <point><latitude>52.367856</latitude><longitude>47.238764</longitude></point>
+        <point><latitude>52.367149</latitude><longitude>47.239837</longitude></point>
+        <point><latitude>52.366756</latitude><longitude>47.239623</longitude></point>
+        <point><latitude>52.366834</latitude><longitude>47.238636</longitude></point>
+        <point><latitude>52.366887</latitude><longitude>47.237606</longitude></point>
+        <point><latitude>52.366389</latitude><longitude>47.237820</longitude></point>
+        <point><latitude>52.366022</latitude><longitude>47.238292</longitude></point>
+        <point><latitude>52.365917</latitude><longitude>47.238979</longitude></point>
+        <point><latitude>52.365052</latitude><longitude>47.238893</longitude></point>
+        <point><latitude>52.364397</latitude><longitude>47.239322</longitude></point>
+        <point><latitude>52.363847</latitude><longitude>47.239666</longitude></point>
+        <point><latitude>52.363506</latitude><longitude>47.239708</longitude></point>
+        <point><latitude>52.363506</latitude><longitude>47.240996</longitude></point>
+        <point><latitude>52.364397</latitude><longitude>47.241382</longitude></point>
+        <point><latitude>52.363690</latitude><longitude>47.242198</longitude></point>
+        <point><latitude>52.363270</latitude><longitude>47.242412</longitude></point>
+        <point><latitude>52.362877</latitude><longitude>47.241854</longitude></point>
+        <point><latitude>52.362589</latitude><longitude>47.240824</longitude></point>
+        <point><latitude>52.361881</latitude><longitude>47.240996</longitude></point>
+        <point><latitude>52.361488</latitude><longitude>47.241640</longitude></point>
+        <point><latitude>52.360964</latitude><longitude>47.242240</longitude></point>
+        <point><latitude>52.360440</latitude><longitude>47.241983</longitude></point>
+        <point><latitude>52.359890</latitude><longitude>47.242713</longitude></point>
+        <point><latitude>52.359680</latitude><longitude>47.243957</longitude></point>
+        <point><latitude>52.359392</latitude><longitude>47.244086</longitude></point>
+        <point><latitude>52.358710</latitude><longitude>47.243914</longitude></point>
+        <point><latitude>52.358291</latitude><longitude>47.243914</longitude></point>
+        <point><latitude>52.357007</latitude><longitude>47.245030</longitude></point>
+        <point><latitude>52.356823</latitude><longitude>47.246789</longitude></point>
+        <point><latitude>52.357242</latitude><longitude>47.246961</longitude></point>
+        <point><latitude>52.357609</latitude><longitude>47.246918</longitude></point>
+        <point><latitude>52.357924</latitude><longitude>47.247562</longitude></point>
+        <point><latitude>52.358317</latitude><longitude>47.247991</longitude></point>
+        <point><latitude>52.357793</latitude><longitude>47.248549</longitude></point>
+        <point><latitude>52.356980</latitude><longitude>47.248292</longitude></point>
+        <point><latitude>52.356430</latitude><longitude>47.248678</longitude></point>
+        <point><latitude>52.355984</latitude><longitude>47.249493</longitude></point>
+        <point><latitude>52.355958</latitude><longitude>47.250094</longitude></point>
+        <point><latitude>52.355198</latitude><longitude>47.250266</longitude></point>
+        <point><latitude>52.354621</latitude><longitude>47.249665</longitude></point>
+        <point><latitude>52.353835</latitude><longitude>47.249450</longitude></point>
+        <point><latitude>52.353232</latitude><longitude>47.249794</longitude></point>
+        <point><latitude>52.352262</latitude><longitude>47.250008</longitude></point>
+        <point><latitude>52.351292</latitude><longitude>47.249708</longitude></point>
+        <point><latitude>52.350558</latitude><longitude>47.249622</longitude></point>
+        <point><latitude>52.350087</latitude><longitude>47.250738</longitude></point>
+        <point><latitude>52.350375</latitude><longitude>47.252068</longitude></point>
+        <point><latitude>52.350873</latitude><longitude>47.252626</longitude></point>
+        <point><latitude>52.350847</latitude><longitude>47.253742</longitude></point>
+        <point><latitude>52.350401</latitude><longitude>47.254729</longitude></point>
+        <point><latitude>52.349693</latitude><longitude>47.254772</longitude></point>
+        <point><latitude>52.349379</latitude><longitude>47.254428</longitude></point>
+        <point><latitude>52.348645</latitude><longitude>47.255544</longitude></point>
+        <point><latitude>52.348514</latitude><longitude>47.257132</longitude></point>
+        <point><latitude>52.348854</latitude><longitude>47.258591</longitude></point>
+        <point><latitude>52.349326</latitude><longitude>47.259750</longitude></point>
+        <point><latitude>52.349274</latitude><longitude>47.261037</longitude></point>
+        <point><latitude>52.348933</latitude><longitude>47.261681</longitude></point>
+        <point><latitude>52.348854</latitude><longitude>47.262625</longitude></point>
+        <point><latitude>52.348959</latitude><longitude>47.263054</longitude></point>
+        <point><latitude>52.349221</latitude><longitude>47.263956</longitude></point>
+        <point><latitude>52.349300</latitude><longitude>47.265029</longitude></point>
+        <point><latitude>52.348776</latitude><longitude>47.265157</longitude></point>
+        <point><latitude>52.348356</latitude><longitude>47.266058</longitude></point>
+        <point><latitude>52.348356</latitude><longitude>47.266874</longitude></point>
+        <point><latitude>52.348619</latitude><longitude>47.268590</longitude></point>
+        <point><latitude>52.348907</latitude><longitude>47.269921</longitude></point>
+        <point><latitude>52.349484</latitude><longitude>47.270693</longitude></point>
+        <point><latitude>52.349772</latitude><longitude>47.271337</longitude></point>
+        <point><latitude>52.349667</latitude><longitude>47.272367</longitude></point>
+        <point><latitude>52.349012</latitude><longitude>47.274513</longitude></point>
+        <point><latitude>52.348278</latitude><longitude>47.275199</longitude></point>
+        <point><latitude>52.347727</latitude><longitude>47.275543</longitude></point>
+        <point><latitude>52.347046</latitude><longitude>47.275071</longitude></point>
+        <point><latitude>52.346783</latitude><longitude>47.274298</longitude></point>
+        <point><latitude>52.346390</latitude><longitude>47.274169</longitude></point>
+        <point><latitude>52.345892</latitude><longitude>47.274599</longitude></point>
+        <point><latitude>52.345315</latitude><longitude>47.274341</longitude></point>
+        <point><latitude>52.345001</latitude><longitude>47.273483</longitude></point>
+        <point><latitude>52.344817</latitude><longitude>47.271723</longitude></point>
+        <point><latitude>52.344398</latitude><longitude>47.271208</longitude></point>
+        <point><latitude>52.343900</latitude><longitude>47.271509</longitude></point>
+        <point><latitude>52.343690</latitude><longitude>47.272367</longitude></point>
+        <point><latitude>52.343323</latitude><longitude>47.273311</longitude></point>
+        <point><latitude>52.343297</latitude><longitude>47.274427</longitude></point>
+        <point><latitude>52.342930</latitude><longitude>47.274727</longitude></point>
+        <point><latitude>52.342484</latitude><longitude>47.274212</longitude></point>
+        <point><latitude>52.342091</latitude><longitude>47.275629</longitude></point>
+        <point><latitude>52.341959</latitude><longitude>47.276530</longitude></point>
+        <point><latitude>52.342248</latitude><longitude>47.277388</longitude></point>
+        <point><latitude>52.340439</latitude><longitude>47.277731</longitude></point>
+        <point><latitude>52.339495</latitude><longitude>47.277689</longitude></point>
+        <point><latitude>52.336007</latitude><longitude>47.277131</longitude></point>
+        <point><latitude>52.334801</latitude><longitude>47.276401</longitude></point>
+        <point><latitude>52.333621</latitude><longitude>47.275543</longitude></point>
+        <point><latitude>52.332388</latitude><longitude>47.276186</longitude></point>
+        <point><latitude>52.323996</latitude><longitude>47.281723</longitude></point>
+        <point><latitude>52.319982</latitude><longitude>47.283225</longitude></point>
+        <point><latitude>52.318540</latitude><longitude>47.282366</longitude></point>
+        <point><latitude>52.315811</latitude><longitude>47.278976</longitude></point>
+        <point><latitude>52.313345</latitude><longitude>47.274212</longitude></point>
+        <point><latitude>52.302325</latitude><longitude>47.257990</longitude></point>
+        <point><latitude>52.301170</latitude><longitude>47.255373</longitude></point>
+        <point><latitude>52.297417</latitude><longitude>47.248077</longitude></point>
+        <point><latitude>52.296551</latitude><longitude>47.246446</longitude></point>
+        <point><latitude>52.292246</latitude><longitude>47.240395</longitude></point>
+        <point><latitude>52.291774</latitude><longitude>47.238550</longitude></point>
+        <point><latitude>52.291721</latitude><longitude>47.237219</longitude></point>
+        <point><latitude>52.291984</latitude><longitude>47.231082</longitude></point>
+        <point><latitude>52.291065</latitude><longitude>47.229495</longitude></point>
+        <point><latitude>52.281352</latitude><longitude>47.222199</longitude></point>
+        <point><latitude>52.276390</latitude><longitude>47.218422</longitude></point>
+        <point><latitude>52.274446</latitude><longitude>47.218465</longitude></point>
+        <point><latitude>52.273396</latitude><longitude>47.219023</longitude></point>
+        <point><latitude>52.271138</latitude><longitude>47.220826</longitude></point>
+        <point><latitude>52.265701</latitude><longitude>47.225589</longitude></point>
+        <point><latitude>52.264388</latitude><longitude>47.225847</longitude></point>
+        <point><latitude>52.263311</latitude><longitude>47.226233</longitude></point>
+        <point><latitude>52.259502</latitude><longitude>47.228593</longitude></point>
+        <point><latitude>52.254249</latitude><longitude>47.231040</longitude></point>
+        <point><latitude>52.244422</latitude><longitude>47.236146</longitude></point>
+        <point><latitude>52.240086</latitude><longitude>47.238378</longitude></point>
+        <point><latitude>52.233148</latitude><longitude>47.239837</longitude></point>
+        <point><latitude>52.222108</latitude><longitude>47.240524</longitude></point>
+        <point><latitude>52.220478</latitude><longitude>47.241210</longitude></point>
+        <point><latitude>52.210512</latitude><longitude>47.247734</longitude></point>
+        <point><latitude>52.198098</latitude><longitude>47.255930</longitude></point>
+        <point><latitude>52.196625</latitude><longitude>47.255930</longitude></point>
+        <point><latitude>52.194863</latitude><longitude>47.255201</longitude></point>
+        <point><latitude>52.193363</latitude><longitude>47.255544</longitude></point>
+        <point><latitude>52.187733</latitude><longitude>47.258291</longitude></point>
+        <point><latitude>52.175313</latitude><longitude>47.264728</longitude></point>
+        <point><latitude>52.164600</latitude><longitude>47.270350</longitude></point>
+        <point><latitude>52.162810</latitude><longitude>47.271895</longitude></point>
+        <point><latitude>52.162047</latitude><longitude>47.273569</longitude></point>
+        <point><latitude>52.160388</latitude><longitude>47.278161</longitude></point>
+        <point><latitude>52.159414</latitude><longitude>47.280178</longitude></point>
+        <point><latitude>52.160415</latitude><longitude>47.288031</longitude></point>
+        <point><latitude>52.159677</latitude><longitude>47.289876</longitude></point>
+        <point><latitude>52.158835</latitude><longitude>47.290434</longitude></point>
+        <point><latitude>52.142404</latitude><longitude>47.299146</longitude></point>
+        <point><latitude>52.137347</latitude><longitude>47.301936</longitude></point>
+        <point><latitude>52.134475</latitude><longitude>47.303137</longitude></point>
+        <point><latitude>52.131947</latitude><longitude>47.303738</longitude></point>
+        <point><latitude>52.119142</latitude><longitude>47.306270</longitude></point>
+        <point><latitude>52.116401</latitude><longitude>47.306098</longitude></point>
+        <point><latitude>52.115136</latitude><longitude>47.308201</longitude></point>
+        <point><latitude>52.113950</latitude><longitude>47.310218</longitude></point>
+        <point><latitude>52.112501</latitude><longitude>47.320261</longitude></point>
+        <point><latitude>52.112132</latitude><longitude>47.324252</longitude></point>
+        <point><latitude>52.111130</latitude><longitude>47.341246</longitude></point>
+        <point><latitude>52.109233</latitude><longitude>47.374248</longitude></point>
+        <point><latitude>52.107388</latitude><longitude>47.410082</longitude></point>
+        <point><latitude>52.106333</latitude><longitude>47.429437</longitude></point>
+        <point><latitude>52.106096</latitude><longitude>47.431798</longitude></point>
+        <point><latitude>52.105569</latitude><longitude>47.434845</longitude></point>
+        <point><latitude>52.102116</latitude><longitude>47.456903</longitude></point>
+        <point><latitude>52.102010</latitude><longitude>47.460980</longitude></point>
+        <point><latitude>52.101931</latitude><longitude>47.464628</longitude></point>
+        <point><latitude>52.102511</latitude><longitude>47.478790</longitude></point>
+        <point><latitude>52.103355</latitude><longitude>47.483983</longitude></point>
+        <point><latitude>52.103856</latitude><longitude>47.489690</longitude></point>
+        <point><latitude>52.100877</latitude><longitude>47.510204</longitude></point>
+        <point><latitude>52.098557</latitude><longitude>47.525482</longitude></point>
+        <point><latitude>52.097766</latitude><longitude>47.530117</longitude></point>
+        <point><latitude>52.096000</latitude><longitude>47.531018</longitude></point>
+        <point><latitude>52.095657</latitude><longitude>47.530288</longitude></point>
+        <point><latitude>52.094787</latitude><longitude>47.529172</longitude></point>
+        <point><latitude>52.094391</latitude><longitude>47.527971</longitude></point>
+        <point><latitude>52.093943</latitude><longitude>47.527456</longitude></point>
+        <point><latitude>52.093337</latitude><longitude>47.527070</longitude></point>
+        <point><latitude>52.092282</latitude><longitude>47.527456</longitude></point>
+        <point><latitude>52.091649</latitude><longitude>47.528615</longitude></point>
+        <point><latitude>52.091254</latitude><longitude>47.529730</longitude></point>
+        <point><latitude>52.090885</latitude><longitude>47.530374</longitude></point>
+        <point><latitude>52.090120</latitude><longitude>47.530503</longitude></point>
+        <point><latitude>52.089408</latitude><longitude>47.530589</longitude></point>
+        <point><latitude>52.088881</latitude><longitude>47.531790</longitude></point>
+        <point><latitude>52.088960</latitude><longitude>47.533206</longitude></point>
+        <point><latitude>52.088907</latitude><longitude>47.534322</longitude></point>
+        <point><latitude>52.088538</latitude><longitude>47.535224</longitude></point>
+        <point><latitude>52.087747</latitude><longitude>47.536039</longitude></point>
+        <point><latitude>52.087193</latitude><longitude>47.536211</longitude></point>
+        <point><latitude>52.086376</latitude><longitude>47.536211</longitude></point>
+        <point><latitude>52.085769</latitude><longitude>47.536382</longitude></point>
+        <point><latitude>52.085637</latitude><longitude>47.538442</longitude></point>
+        <point><latitude>52.085004</latitude><longitude>47.538485</longitude></point>
+        <point><latitude>52.084292</latitude><longitude>47.538871</longitude></point>
+        <point><latitude>52.083659</latitude><longitude>47.538828</longitude></point>
+        <point><latitude>52.082947</latitude><longitude>47.538313</longitude></point>
+        <point><latitude>52.082024</latitude><longitude>47.538185</longitude></point>
+        <point><latitude>52.081734</latitude><longitude>47.539300</longitude></point>
+        <point><latitude>52.079466</latitude><longitude>47.539601</longitude></point>
+        <point><latitude>52.078807</latitude><longitude>47.540030</longitude></point>
+        <point><latitude>52.078068</latitude><longitude>47.540416</longitude></point>
+        <point><latitude>52.077277</latitude><longitude>47.540288</longitude></point>
+        <point><latitude>52.077092</latitude><longitude>47.541532</longitude></point>
+        <point><latitude>52.077145</latitude><longitude>47.543377</longitude></point>
+        <point><latitude>52.076960</latitude><longitude>47.545480</longitude></point>
+        <point><latitude>52.076828</latitude><longitude>47.547154</longitude></point>
+        <point><latitude>52.076327</latitude><longitude>47.548828</longitude></point>
+        <point><latitude>52.075510</latitude><longitude>47.549042</longitude></point>
+        <point><latitude>52.074824</latitude><longitude>47.548227</longitude></point>
+        <point><latitude>52.074191</latitude><longitude>47.546382</longitude></point>
+        <point><latitude>52.074402</latitude><longitude>47.544965</longitude></point>
+        <point><latitude>52.066778</latitude><longitude>47.541317</longitude></point>
+        <point><latitude>52.066910</latitude><longitude>47.524752</longitude></point>
+        <point><latitude>52.064404</latitude><longitude>47.509517</longitude></point>
+        <point><latitude>52.062346</latitude><longitude>47.501020</longitude></point>
+        <point><latitude>52.055512</latitude><longitude>47.480549</longitude></point>
+        <point><latitude>52.052503</latitude><longitude>47.471065</longitude></point>
+        <point><latitude>52.048307</latitude><longitude>47.462654</longitude></point>
+        <point><latitude>52.040177</latitude><longitude>47.437763</longitude></point>
+        <point><latitude>52.036561</latitude><longitude>47.426691</longitude></point>
+        <point><latitude>52.035637</latitude><longitude>47.422184</longitude></point>
+        <point><latitude>52.030990</latitude><longitude>47.403216</longitude></point>
+        <point><latitude>52.027425</latitude><longitude>47.396993</longitude></point>
+        <point><latitude>52.025102</latitude><longitude>47.388839</longitude></point>
+        <point><latitude>52.024257</latitude><longitude>47.387638</longitude></point>
+        <point><latitude>52.019371</latitude><longitude>47.392401</longitude></point>
+        <point><latitude>52.012134</latitude><longitude>47.382402</longitude></point>
+        <point><latitude>52.009361</latitude><longitude>47.366180</longitude></point>
+        <point><latitude>52.008198</latitude><longitude>47.350044</longitude></point>
+        <point><latitude>52.007406</latitude><longitude>47.332706</longitude></point>
+        <point><latitude>52.004156</latitude><longitude>47.325840</longitude></point>
+        <point><latitude>52.001039</latitude><longitude>47.315068</longitude></point>
+        <point><latitude>52.000061</latitude><longitude>47.312665</longitude></point>
+        <point><latitude>51.999321</latitude><longitude>47.308845</longitude></point>
+        <point><latitude>51.995200</latitude><longitude>47.291207</longitude></point>
+        <point><latitude>51.993720</latitude><longitude>47.286443</longitude></point>
+        <point><latitude>51.992643</latitude><longitude>47.283353</longitude></point>
     </polygon>
 </Polygon>

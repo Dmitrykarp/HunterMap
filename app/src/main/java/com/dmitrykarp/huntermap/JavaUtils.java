@@ -50,6 +50,7 @@ public class JavaUtils {
         String latLong = "";
         double latitude = 0, longitude = 0;
 
+
         try {
             int eventType = xpp.getEventType();
             while (eventType != XmlPullParser.END_DOCUMENT) {

@@ -9,6 +9,7 @@ import android.location.Location
 import android.location.LocationRequest
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -85,10 +86,12 @@ class MainActivity : AppCompatActivity() {
                 buttonFlag = false
                 b.onOff.text = "ON"
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FF5902D3"))
+                Toast.makeText(this,"Tracker OFF",Toast.LENGTH_LONG).show()
             } else {
                 buttonFlag = true
                 b.onOff.setBackgroundColor(XmlUtils.getColor(gf, "#FFDB1833"))
                 b.onOff.text = "OFF"
+                Toast.makeText(this,"Tracker ON",Toast.LENGTH_LONG).show()
             }
         }
 
@@ -115,6 +118,7 @@ class MainActivity : AppCompatActivity() {
                     b.map.addLayer(pl)
                 }
                 zoneStatus = true
+                Toast.makeText(this,"Zone activated",Toast.LENGTH_LONG).show()
 
             } else {
                 for (pl in polygonList) {
@@ -123,6 +127,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 zoneStatus = false
+                Toast.makeText(this,"Zone hide",Toast.LENGTH_LONG).show()
             }
         }
 
@@ -132,7 +137,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun openMap(uri: Uri) {
-        b.map.mapScaleBar.isVisible = true
+        b.map.mapScaleBar.isVisible = false
         b.map.setBuiltInZoomControls(true)
         b.map.setZoomLevelMax(16)
         b.map.setZoomLevelMin(10)

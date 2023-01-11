@@ -19,12 +19,18 @@ public class JavaUtils {
 
     public static Collection<Polygon> initPolygons(Resources resources){
         Collection<Polygon> polyList = new ArrayList<>();
-        polyList.addAll(getPolygonListByXml(resources.getXml(R.xml.yellow_polygons), false));
-        polyList.addAll(getPolygonListByXml(resources.getXml(R.xml.red_polygons),true));
+        polyList.addAll(getPolygonListByXml(resources.getXml(R.xml.yellow_polygons), Colors.YELLOW));
+        polyList.addAll(getPolygonListByXml(resources.getXml(R.xml.red_polygons),Colors.RED));
         return polyList;
     }
 
-    private static Collection<Polygon> getPolygonListByXml(XmlPullParser xpp, Boolean isRed) {
+    public static Polygon initZone(Resources resources){
+        ArrayList<Polygon> polyList = new ArrayList<>();
+        polyList.addAll(getPolygonListByXml(resources.getXml(R.xml.green_polygons),Colors.GREEN));
+        return polyList.get(0);
+    }
+
+    private static Collection<Polygon> getPolygonListByXml(XmlPullParser xpp, Enum<Colors> colorsEnum) {
         Collection<Polygon> polyList = new ArrayList<>();
         GraphicFactory graphicFactory = AndroidGraphicFactory.INSTANCE;
 
@@ -33,10 +39,15 @@ public class JavaUtils {
         paintZoneRed.setStrokeWidth(3F);
         paintZoneRed.setColor(XmlUtils.getColor(graphicFactory, "#CCED3438"));
 
-        Paint paintZone = graphicFactory.createPaint();
-        paintZone.setStyle(Style.FILL);
-        paintZone.setStrokeWidth(3F);
-        paintZone.setColor(XmlUtils.getColor(graphicFactory, "#73ECEC35"));
+        Paint paintZoneYellow = graphicFactory.createPaint();
+        paintZoneYellow.setStyle(Style.FILL);
+        paintZoneYellow.setStrokeWidth(3F);
+        paintZoneYellow.setColor(XmlUtils.getColor(graphicFactory, "#73ECEC35"));
+
+        Paint paintZoneGreen = graphicFactory.createPaint();
+        paintZoneGreen.setStyle(Style.STROKE);
+        paintZoneGreen.setStrokeWidth(9F);
+        paintZoneGreen.setColor(XmlUtils.getColor(graphicFactory, "#FF205E18"));
 
         Paint paintZoneStroke = graphicFactory.createPaint();
         paintZoneStroke.setStyle(Style.STROKE);
@@ -60,10 +71,12 @@ public class JavaUtils {
                     case XmlPullParser.START_TAG:
                         if ("polygon".equalsIgnoreCase(tagName)) {
                             inPolygon = true;
-                            if (isRed) {
+                            if (Colors.RED.equals(colorsEnum)) {
                                 currentPolygon = new Polygon(paintZoneRed, null, graphicFactory);
+                            } else if (Colors.YELLOW.equals(colorsEnum)){
+                                currentPolygon = new Polygon(paintZoneYellow, paintZoneStroke, graphicFactory);
                             } else {
-                                currentPolygon = new Polygon(paintZone, paintZoneStroke, graphicFactory);
+                                currentPolygon = new Polygon(null, paintZoneGreen, graphicFactory);
                             }
                         } else if ("point".equalsIgnoreCase(tagName)) {
                             inPoint = true;

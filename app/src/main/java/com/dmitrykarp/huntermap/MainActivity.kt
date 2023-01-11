@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var locationLayer: MyLocationOverlay
     private lateinit var gf: GraphicFactory
     private lateinit var polygonList: Collection<Polygon>
+    private lateinit var polygonZone: Polygon
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +67,8 @@ class MainActivity : AppCompatActivity() {
                 resources, R.drawable.ic_maps_indicator_current_position
             )
         )
-        polygonList = JavaUtils.initPolygons(resources);
+        polygonList = JavaUtils.initPolygons(resources)
+        polygonZone   = JavaUtils.initZone(resources)
 
         marker = Marker(CURRENT_LOCATION, bitmapBalloonSN, 1, 1)
         locationLayer = MyLocationOverlay(marker)
@@ -165,6 +167,8 @@ class MainActivity : AppCompatActivity() {
         b.map.layerManager.layers.add(renderLayer)
         b.map.setCenter(CURRENT_LOCATION)
         b.map.setZoomLevel(13)
+
+        b.map.addLayer(polygonZone)
 
     }
 
